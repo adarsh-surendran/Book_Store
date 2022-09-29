@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Web.Http;
 using WebApplication11.Models;
 
@@ -13,7 +14,7 @@ namespace WebApplication11.Controllers
         private ICategory category;
         public CategoryController()
         {
-            category = new BookService();
+            category = new CategoryService();
         }
         [HttpGet]
         public IHttpActionResult Get()
@@ -28,5 +29,20 @@ namespace WebApplication11.Controllers
             return Ok(data);
 
         }
-    }   
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            category.DeleteCategory(id);
+            return Ok();
+        }
+        [HttpPut]
+        public IHttpActionResult Update(Category cat)
+        {
+            category.UpdateCategory(cat);
+            return Ok();
+        }
+
+
+
+    }
 }

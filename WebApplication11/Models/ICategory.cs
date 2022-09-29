@@ -12,6 +12,6 @@ namespace WebApplication11.Models
        
         Category AddCategory(Category category);
         void DeleteCategory(int id);
-        void UpdateCategory(Category category);
+        void UpdateCategory(Category cat);
     }
 }
